@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.CreateAccountMapper">
+    <select id="findLoginId" resultType="com.example.model.UserData">
+        SELECT * FROM t_user_info where login_id = #{loginId};
+    </select>
+    <select id="findUserEmail" resultType="com.example.model.UserData">
+        SELECT * FROM t_user_info where email = #{email};
+    </select>
+    <select id="findMaxSequenceByDate" resultType="Integer">
+        SELECT MAX(CAST(SUBSTRING(id, 9, 3) AS INTEGER))
+        FROM t_user_info
+        WHERE id LIKE #{prefix} || '%';
+    </select>
+    <insert id="insertUser">
+        INSERT INTO t_user_info (id, login_id, password, email, role, login_failure_count, is_deleted,
+        created_at, updated_at)
+        VALUES (#{form.id}, #{form.loginId}, #{form.password}, #{form.email}, #{form.role},#{form.loginFailureCount},
+        #{form.isDeleted},#{form.createdAt},#{form.updatedAt});
+    </insert>
+</mapper>
+    

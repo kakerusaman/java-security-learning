@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.UserProfilesMapper">
+
+    <insert id="insertUserProfiles">
+        INSERT INTO t_user_profiles (
+            id,
+            last_name,
+            first_name,
+            last_name_kana,
+            first_name_kana,
+            gender,
+            zip_code,
+            address,
+            street_number,
+            address_kana,
+            street_number_kana,
+            birth_date,
+            phone_number,
+            emergency_name,
+            emergency_phone
+        ) VALUES (
+            #{id},
+            #{lastName},
+            #{firstName},
+            #{lastNameKana},
+            #{firstNameKana},
+            #{gender},
+            #{zipCode},
+            #{address},
+            #{streetNumber},
+            #{addressKana},
+            #{streetNumberKana},
+            #{birthDate},
+            #{phoneNumber},
+            #{emergencyName},
+            #{emergencyPhone}
+        )
+    </insert>
+
+    <update id="updateUserProfiles">
+        UPDATE t_user_profiles
+        SET
+            last_name          = #{lastName},
+            first_name         = #{firstName},
+            last_name_kana     = #{lastNameKana},
+            first_name_kana    = #{firstNameKana},
+            gender             = #{gender},
+            zip_code           = #{zipCode},
+            address            = #{address},
+            street_number      = #{streetNumber},
+            address_kana       = #{addressKana},
+            street_number_kana = #{streetNumberKana},
+            birth_date         = #{birthDate},
+            phone_number       = #{phoneNumber},
+            emergency_name     = #{emergencyName},
+            emergency_phone    = #{emergencyPhone}
+        WHERE id = #{id}
+    </update>
+
+    <select id="findUser" resultType="com.example.model.UserProfiles">
+        SELECT * FROM t_user_profiles WHERE id = #{id}
+    </select>
+
+</mapper>
+    

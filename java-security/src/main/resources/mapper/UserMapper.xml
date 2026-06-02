@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.UserMapper">
+    <select id="findUser" resultType="com.example.model.UserData">
+        SELECT * FROM t_user_info where user_id = #{userId};
+    </select>
+    <select id="findAll" resultType="com.example.model.UserData">
+        SELECT * FROM t_user_info;
+    </select>
+    <insert id="insertUser">
+        INSERT INTO t_user_info VALUES(#{userId}, #{password});
+    </insert>
+</mapper>
+    

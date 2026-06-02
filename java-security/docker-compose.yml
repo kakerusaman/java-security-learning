@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: java-security-db
+    environment:
+      POSTGRES_DB: java-security
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: yourpassword
+    ports:
+      - "5433:5432"
+    volumes:
+      - java-security-data:/var/lib/postgresql/data
+
+volumes:
+  java-security-data:

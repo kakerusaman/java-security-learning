@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Dockerコンテナ起動
-echo "Starting Docker container..."
+echo "Starting Docker container..." # Docekrコンテナ起動
 docker start java-security-db
 echo "Docker container started."
 
